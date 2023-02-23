@@ -1,24 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+// import Todo from "./ToDoProject/components/Todo";
+import {Routes,Route} from 'react-router-dom'
+import AllMeetupsPages from './MeetupProject/pages/AllMeetups';
+import NewMeetup from './MeetupProject/pages/NewMeetup';
+import Favourites from './MeetupProject/pages/Favourites';
+import MainNavigation from './MeetupProject/components/layout/MainNavigation';
 
 function App() {
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <div>
+      <MainNavigation />
+      {/* this is how you define route.....each route must be within routes component */}
+     
+     
+     <Routes>
+    {/* default path */}
+
+      <Route path='/' element={<AllMeetupsPages />} />
+
+      <Route path='/new-meetup' element={<NewMeetup />} />
+
+      <Route path='/favourites' element={<Favourites />} />
+    
+
+    {/* Below is for Todo project */}
+    {/* <h1>My Todos</h1> */}
+    {/* self closing tag....custom components need to start with capital */}
+    {/* <Todo title = 'First title'/> */}
+    {/* <Todo  title = 'Second title'/> */}
+
+
+    </Routes>
+   </div>
   );
 }
 
